@@ -2,8 +2,7 @@ import time
 from login_generator import generate_login
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
+
 
 def test_registration_input_correct_data():
     driver = webdriver.Chrome()
