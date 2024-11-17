@@ -1,21 +1,20 @@
 from locators import *
 from urls import *
 
-from login_generator import generate_login
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-def test_registration_input_correct_data(driver):
+def test_registration_input_correct_data(driver, generate_login):
     driver.get(registration_page)
 
     # Ввод имени в поле Имя
     driver.find_element(By.XPATH, name_registration).send_keys("Denis")
 
     # Ввод почты в поле Email
-    driver.find_element(By.XPATH, email_registation).send_keys(generate_login())
+    driver.find_element(By.XPATH, email_registation).send_keys(generate_login)
 
     # Ввод пароля в поле Пароль
     driver.find_element(By.CSS_SELECTOR, password_registration).send_keys("555999")
@@ -32,14 +31,14 @@ def test_registration_input_correct_data(driver):
     # Закрываем браузер
     driver.quit()
 
-def test_registration_input_password_with_lenght_less_then_six(driver):
+def test_registration_input_password_with_lenght_less_then_six(driver, generate_login):
     driver.get(registration_page)
 
     # Ввод имени в поле Имя
     driver.find_element(By.XPATH, name_registration).send_keys("Denis")
 
     # Ввод почты в поле Email
-    driver.find_element(By.XPATH, email_registation).send_keys(generate_login())
+    driver.find_element(By.XPATH, email_registation).send_keys(generate_login)
 
     # Ввод пароля с 3 символами в поле Пароль
     driver.find_element(By.CSS_SELECTOR, password_registration).send_keys("555")
