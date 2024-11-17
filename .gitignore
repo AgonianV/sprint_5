@@ -4,7 +4,8 @@
 
 # User-profiles_settings
 .idea/**/profiles_settings.xml
-.idea/inspectionProfiles/
+.idea
+.idea/
 
 # User-specific stuff
 .idea/**/workspace.xml
