@@ -1,67 +1,56 @@
-import time
-from selenium import webdriver
+from locators import *
+from urls import *
+
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-def test_click_on_sauce_section():
-    driver = webdriver.Chrome()
+def test_click_on_sauce_section(driver):
+    driver.get(main_page)
 
-    driver.get("https://stellarburgers.nomoreparties.site/")
+    # Ожидаем пока главная страница не прогрузится
+    WebDriverWait(driver, 5).until(expected_conditions.url_to_be((main_page)))
 
     #Кликаем на кнопку "Соусы"
-    driver.find_element(By.XPATH, "//section[1]/div[1]/div[2]").click()
+    driver.find_element(By.XPATH, sauce).click()
 
-    # Находим раздел "соусы"
-    element = driver.find_element(By.XPATH, "//main/section[1]/div[2]/h2[2]")
-    time.sleep(2)
-    #Узнаем нынешние координаты раздела
-    section_location = element.location
 
-    # Проверяем, что раздел "соусы" после клика по кнопке переместились наверх
-    assert section_location == {'x': 0, 'y': 244}
+    # Проверяем, что раздел "соусы" после клика по кнопке получили Класс "tab_tab_type_current__2BEPc"
+    assert driver.find_element(By.XPATH, sauce_result).text == "Соусы"
 
     driver.quit()
 
-def test_click_on_fillings_section():
-    driver = webdriver.Chrome()
+def test_click_on_fillings_section(driver):
+    driver.get(main_page)
 
-    driver.get("https://stellarburgers.nomoreparties.site/")
+    # Ожидаем пока главная страница не прогрузится
+    WebDriverWait(driver, 5).until(expected_conditions.url_to_be((main_page)))
 
     #Кликаем на кнопку "Начинки"
-    driver.find_element(By.XPATH, "//section[1]/div[1]/div[3]").click()
+    driver.find_element(By.XPATH, fillings).click()
 
-    # Находим раздел "начинки"
-    element = driver.find_element(By.XPATH, "//main/section[1]/div[2]/h2[3]")
-    time.sleep(2)
-    #Узнаем нынешние координаты раздела
-    section_location = element.location
 
-    # Проверяем, что раздел "начинки" после клика по кнопке переместились наверх
-    assert section_location == {'x': 0, 'y': 244}
+
+    # Проверяем, что раздел "Начинки" после клика по кнопке получили Класс "tab_tab_type_current__2BEPc"
+    assert driver.find_element(By.XPATH, fillings_result).text == "Начинки"
 
     driver.quit()
 
 
-def test_click_on_bun_section():
-    driver = webdriver.Chrome()
+def test_click_on_bun_section(driver):
+    driver.get(main_page)
 
-    driver.get("https://stellarburgers.nomoreparties.site/")
+    # Ожидаем пока главная страница не прогрузится
+    WebDriverWait(driver, 5).until(expected_conditions.url_to_be((main_page)))
 
-    #Кликаем на кнопку "Начинки", чтобы сместить раздел с булками на странице
-    driver.find_element(By.XPATH, "//section[1]/div[1]/div[3]").click()
-
-    time.sleep(2)
+    #Кликаем на кнопку "Начинки", так как раздел "Булки" выбран по дефолту
+    driver.find_element(By.XPATH, fillings).click()
 
     # Кликаем на кнопку "Булки"
-    driver.find_element(By.XPATH, "//section[1]/div[1]/div[1]").click()
+    driver.find_element(By.XPATH, bun).click()
 
-    # Находим раздел "булки"
-    element = driver.find_element(By.XPATH, "//main/section[1]/div[2]/h2[1]")
-    time.sleep(2)
-    #Узнаем нынешние координаты раздела
-    section_location = element.location
-
-    # Проверяем, что раздел "булки" после клика по кнопке переместились наверх
-    assert section_location == {'x': 0, 'y': 244}
+    # Проверяем, что раздел "Булки" после клика по кнопке получили Класс "tab_tab_type_current__2BEPc"
+    assert driver.find_element(By.XPATH, bun_result).text == "Булки"
 
     driver.quit()
