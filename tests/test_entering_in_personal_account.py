@@ -38,5 +38,3 @@ def test_login_from_button_personal_account(driver):
 
     # Проверяем, что после авторизации, по кнопке "Личный кабинет" открывается страница личного кабинета
     assert driver.current_url == profile_page
-
-    driver.quit()

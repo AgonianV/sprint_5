@@ -33,7 +33,6 @@ def test_login_from_button_login_to_account(driver):
     # Проверяем, что после авторизации произошел перевод на главную страницу и отображается кнопка "Оформить заказ"
     assert driver.current_url == main_page and driver.find_element(By.CLASS_NAME, order_button).text == "Оформить заказ"
 
-    driver.quit()
 
 def test_login_from_button_personal_account(driver):
     driver.get(main_page)
@@ -61,8 +60,6 @@ def test_login_from_button_personal_account(driver):
 
     # Проверяем, что после авторизации произошел перевод на главную страницу и отображается кнопка "Оформить заказ"
     assert driver.current_url == main_page and driver.find_element(By.CLASS_NAME, order_button).text == "Оформить заказ"
-
-    driver.quit()
 
 
 def test_login_from_registration_page(driver):
@@ -92,8 +89,6 @@ def test_login_from_registration_page(driver):
     # Проверяем, что после авторизации произошел перевод на главную страницу и отображается кнопка "Оформить заказ"
     assert driver.current_url == main_page and driver.find_element(By.CLASS_NAME, order_button).text == "Оформить заказ"
 
-    driver.quit()
-
 
 def test_login_from_password_recovery_page(driver):
     driver.get(forgot_password_page)
@@ -121,5 +116,3 @@ def test_login_from_password_recovery_page(driver):
 
     # Проверяем, что после авторизации произошел перевод на главную страницу и отображается кнопка "Оформить заказ"
     assert driver.current_url == main_page and driver.find_element(By.CLASS_NAME, order_button).text == "Оформить заказ"
-
-    driver.quit()

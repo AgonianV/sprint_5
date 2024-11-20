@@ -44,5 +44,3 @@ def test_click_on_logo_from_personal_account(driver):
 
     #Проверяем, что после разлогина, при переходе в личный кабинет, открывается страница авторизации
     assert driver.current_url == login_page
-
-    driver.quit()

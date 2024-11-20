@@ -19,7 +19,6 @@ def test_click_on_sauce_section(driver):
     # Проверяем, что раздел "соусы" после клика по кнопке получили Класс "tab_tab_type_current__2BEPc"
     assert driver.find_element(By.XPATH, sauce_result).text == "Соусы"
 
-    driver.quit()
 
 def test_click_on_fillings_section(driver):
     driver.get(main_page)
@@ -34,8 +33,6 @@ def test_click_on_fillings_section(driver):
 
     # Проверяем, что раздел "Начинки" после клика по кнопке получили Класс "tab_tab_type_current__2BEPc"
     assert driver.find_element(By.XPATH, fillings_result).text == "Начинки"
-
-    driver.quit()
 
 
 def test_click_on_bun_section(driver):
@@ -52,5 +49,3 @@ def test_click_on_bun_section(driver):
 
     # Проверяем, что раздел "Булки" после клика по кнопке получили Класс "tab_tab_type_current__2BEPc"
     assert driver.find_element(By.XPATH, bun_result).text == "Булки"
-
-    driver.quit()

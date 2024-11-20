@@ -41,7 +41,7 @@ def test_click_on_logo_from_personal_account(driver):
     # Проверяем, что при клике на лого произошел переход на главную страницу
     assert driver.current_url == main_page
 
-    driver.quit()
+
 
 def test_click_on_costructor_from_personal_account(driver):
     driver.get("https://stellarburgers.nomoreparties.site/")
@@ -78,5 +78,3 @@ def test_click_on_costructor_from_personal_account(driver):
 
     # Проверяем, что при клике на раздел "Конструктор" произошел переход на главную страницу
     assert driver.current_url == main_page
-
-    driver.quit()

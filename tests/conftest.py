@@ -2,11 +2,13 @@ import pytest
 import  random
 from selenium import webdriver
 
-@pytest.fixture # фикстура, которая создает экземпляр webdriver
+@pytest.fixture(scope="function") # фикстура, которая создает экземпляр webdriver
 def driver():
     driver = webdriver.Chrome()
-
-    return driver
+    try:
+        yield driver
+    finally:
+        driver.quit()
 
 @pytest.fixture # фикстура, которая создает рандомную почту для регистрации
 def generate_login():

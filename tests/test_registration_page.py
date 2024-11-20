@@ -28,9 +28,6 @@ def test_registration_input_correct_data(driver, generate_login):
     # Проверяем, что после нажатия на кнопку "регистрация" мы переходим на страницу входа
     assert driver.current_url == login_page
 
-    # Закрываем браузер
-    driver.quit()
-
 def test_registration_input_password_with_lenght_less_then_six(driver, generate_login):
     driver.get(registration_page)
 
@@ -51,6 +48,3 @@ def test_registration_input_password_with_lenght_less_then_six(driver, generate_
 
     # Проверяем, что  текст ошибки  "Некорректный пароль"
     assert driver.find_element(By.CLASS_NAME, password_error).text == "Некорректный пароль"
-
-    # Закрываем браузер
-    driver.quit()
